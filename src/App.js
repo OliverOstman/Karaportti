@@ -7,15 +7,14 @@ import {
 } from "react-router-dom";
 import Front from "./components/Front";
 import Settings from "./components/Settings";
+import Home from "./components/Home";
 
 function App() {
   return (
       <Router>
-          <div className="App">
-
-          </div>
           <Route path="/settings" component={Settings}/>
           <Route path="/home" component={Front}/>
+          <Route path="/" component={Home}/>
       </Router>
   );
 }
