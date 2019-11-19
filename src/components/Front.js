@@ -1,14 +1,9 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
 
 class Front extends Component{
     render() {
         return (
             <div className="v2">
-                <div className="settings">
-                    <h4>Asetukset ja/tai Kirjautuminen</h4>
-                    <Link to="/settings">Asetukset/Kirjautuminen</Link>
-                </div>
                 <div className="content">
                     <div className="box">
                         <h1>4 Kerros</h1>

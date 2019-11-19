@@ -1,16 +1,16 @@
 import React, {Component} from "react";
 
 class Settings extends Component{
-    red = "";
-    Text = "";
-    select = "";
-    ans = "";
-    remove = "";
-    text2 = "";
+    red;
+    Text;
+    select;
+    ans;
+    remove;
+    text2;
 
     componentDidMount() {
         this.red = document.getElementById("red");
-        this.Text = document.getElementById("redText");
+        this.Text = document.getElementById("important");
         this.select = document.getElementById("select");
         this.ans = document.getElementById("ans");
         this.remove = document.getElementById("remove");
@@ -19,7 +19,7 @@ class Settings extends Component{
 
     getText = (e) => {
         e.preventDefault();
-        this.Text.style.display = "";
+        this.Text.style.display = "block";
         this.Text.innerText = this.red.value;
         this.remove.style.display = "";
     };
@@ -50,7 +50,6 @@ class Settings extends Component{
     render() {
         return(
             <div>
-                <h1 id="redText">Tässä tärkeä tiedote</h1>
                 <div>
                     <h1>Taustakuva</h1>
                     <select id="select">
