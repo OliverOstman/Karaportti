@@ -44,13 +44,13 @@ class Settings extends Component{
         e.preventDefault();
         console.log(this.select.options[this.select.selectedIndex].value);
         console.log(this.select.options[this.select.selectedIndex].text);
-        this.ans.innerText = '"' + this.select.options[this.select.selectedIndex].text + '"' + " Selected";
+        this.ans.innerText = '"' + this.select.options[this.select.selectedIndex].text + " Selected";
     };
 
     render() {
         return(
             <div>
-                <div>
+                <div className="settings">
                     <h1>Taustakuva</h1>
                     <select id="select">
                         <option value="1">Talvi</option>
@@ -64,7 +64,7 @@ class Settings extends Component{
                     <p>(Lisänä pyhät/lomat joulu, pääsiäinen, halloween?)</p>
                     <p>(lisänä tapa ladata oma kuva?)</p>
                 </div>
-                <div>
+                <div className="settings">
                     <h1>Tärkeä tiedote</h1>
                     <textarea id="red">
                         Tähä laittaa jtn joka näkyy sitte sillain ylälaidassa punaisella taustalla
@@ -72,12 +72,12 @@ class Settings extends Component{
                     <button onClick={this.getText}>Send</button>
                     <button id="remove" onClick={this.removeText}>Remove</button>
                 </div>
-                <div>
+                <div className="settings">
                     <h1>Palohälytys</h1>
                     <textarea id="palo">Palohälytys harjoitus tai kaikki ulos</textarea>
                     <button>Modal!</button>
                 </div>
-                <div>
+                <div className="settings">
                     <h1>Lisää tiedote?</h1>
                     <textarea>Otsikko</textarea>
                     <textarea>Ite tiedote</textarea>
