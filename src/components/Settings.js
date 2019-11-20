@@ -1,28 +1,27 @@
 import React, {Component} from "react";
-import Button from "react-bootstrap/Button";
 
 class Settings extends Component{
     red;
     Text;
     select;
-    ans;
     remove;
     text2;
+    backremove;
 
     componentDidMount() {
         this.red = document.getElementById("red");
         this.Text = document.getElementById("important");
         this.select = document.getElementById("select");
-        this.ans = document.getElementById("ans");
         this.remove = document.getElementById("remove");
         this.text2 = document.getElementById("palo");
+        this.backremove = document.getElementById("removeBack");
     }
 
     getText = (e) => {
         e.preventDefault();
-        this.Text.style.display = "block";
+        this.Text.style.display = "initial";
         this.Text.innerText = this.red.value;
-        this.remove.style.display = "";
+        this.remove.style.display = "initial";
     };
 
     removeText = (e) => {
@@ -34,18 +33,20 @@ class Settings extends Component{
 
     setText = (e) => {
         e.preventDefault();
-        /*
-        console.log(modal.innerText);
-        console.log(text2.value);
-        modal.innerText = text2.value;
-        */
+        this.props.changeBody(this.text2.value);
+        this.props.show();
+    };
+
+    removeBack = (e) => {
+        e.preventDefault();
+        this.props.changeBackground("0");
+        this.backremove.style.display = "none";
     };
 
     getValue = (e) => {
         e.preventDefault();
-        console.log(this.select.options[this.select.selectedIndex].value);
-        console.log(this.select.options[this.select.selectedIndex].text);
-        this.ans.innerText = '"' + this.select.options[this.select.selectedIndex].text + " Selected";
+        this.props.changeBackground(this.select.options[this.select.selectedIndex].value);
+        this.backremove.style.display = "initial";
     };
 
     render() {
@@ -55,12 +56,12 @@ class Settings extends Component{
                     <h1>Taustakuva</h1>
                     <select id="select">
                         <option value="1">Talvi</option>
-                        <option value="2">Kevät</option>
-                        <option value="3">Kesä</option>
-                        <option value="4">Syksy</option>
+                        <option value="2">Kevät/Kesä</option>
+                        <option value="3">Syksy</option>
                     </select>
                     <button onClick={this.getValue}>Select</button>
-                    <p id="ans"></p>
+                    <button id="removeBack" onClick={this.removeBack}>Remove</button>
+                    <br/>
                     <a href="https://webdev-public.metropolia.fi/taustakuvat/">Lista jtn oma.metropolian käyttämiä taustakuvia</a>
                     <p>(Lisänä pyhät/lomat joulu, pääsiäinen, halloween?)</p>
                     <p>(lisänä tapa ladata oma kuva?)</p>
@@ -76,10 +77,7 @@ class Settings extends Component{
                 <div className="settings">
                     <h1>Palohälytys</h1>
                     <textarea id="palo">Palohälytys harjoitus tai kaikki ulos</textarea>
-                    <button>Modal!</button>
-                    <Button variant="primary" onClick={this.handleShow}>
-                        Launch demo modal
-                    </Button>
+                    <button onClick={this.setText}>Send</button>
                 </div>
                 <div className="settings">
                     <h1>Lisää tiedote?</h1>

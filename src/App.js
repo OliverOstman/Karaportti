@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {
@@ -9,40 +9,58 @@ import {
 import Front from "./components/Front";
 import Settings from "./components/Settings";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "./logo.svg";
 import Nav from "react-bootstrap/Nav";
 
 class App extends Component{
     state = {
-
+        modalShow: false,
+        modalBody: "",
+        modalTitle: "Palohälytys",
+        background: 0,
     };
+    body;
 
-    PaloModal = () => {
-        const [show, setShow] = useState(false);
+    hide = () => this.setState({modalShow: false});
+    open = () => this.setState({modalShow: true});
+    changeBody = (text) => this.setState({modalBody: text});
+    changeBackground = (selected) => this.setState({background: selected});
 
-        const handleClose = () => setShow(false);
-        const handleShow = () => setShow(true);
+    componentDidMount() {
+        this.body = document.getElementById("root");
+    }
 
-        return (
-            <>
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            </>
-        );
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.background === "0") {
+            this.body.style.backgroundImage = "none";
+        } else if (this.state.background === "1") {
+            this.body.style.backgroundImage = "url('https://webdev-public.metropolia.fi/taustakuvat/tausta_idp-talvi.jpg')";
+        } else if (this.state.background === "2") {
+            this.body.style.backgroundImage = "url('https://webdev-public.metropolia.fi/taustakuvat/tausta_idp-kevatkesa.jpg')";
+        }else if (this.state.background === "3") {
+            this.body.style.backgroundImage = "url('https://webdev-public.metropolia.fi/taustakuvat/tausta_idp.jpg')";
+        }
+    }
+
+    myModal = () => {
+      return (
+          <Modal show={this.state.modalShow} onHide={this.hide} animation={false}
+                 size="lg"
+                 aria-labelledby="contained-modal-title-vcenter"
+                 centered>
+              <Modal.Header id="modalsHeader">
+                  <h1 id="modalH1" className="headerModal">
+                      {this.state.modalTitle}
+                  </h1>
+              </Modal.Header>
+              <Modal.Body>
+                  <h4 id="modalH4" className="headerModal">
+                      {this.state.modalBody}
+                  </h4>
+              </Modal.Body>
+          </Modal>
+      )
     };
 
     render() {
@@ -77,10 +95,13 @@ class App extends Component{
                         <h1 id="important">Palohälytys</h1>
                     </Nav>
 
-                    <this.PaloModal/>
+                    <this.myModal/>
                 </div>
 
-                <Route path="/settings" component={Settings}/>
+
+                <Route path="/settings" render={(props) => (
+                    <Settings {...props} show={this.open} changeBody={this.changeBody} changeBackground={this.changeBackground}/>
+                )}/>
                 <Route path="/home" component={Front}/>
                 <Redirect to="/home"/>
             </Router>

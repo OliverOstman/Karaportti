@@ -8,6 +8,24 @@ p {
   /* width: max-content; */
 }
 
+#theModal {
+  background-color: red;
+  color: white;
+}
+
+#modalsHeader {
+  border-bottom: none;
+  margin-bottom: 3rem;
+}
+
+#remove {
+  display: none;
+}
+
+#removeBack {
+  display: none;
+}
+
 #bus {
   display: flex;
   flex-wrap: wrap;
@@ -23,6 +41,14 @@ p {
   text-align: center;
   background-color: red;
   display: none;
+}
+
+#modalH1 {
+  font-size: 6rem;
+}
+
+#modalH4 {
+  font-size: 2rem;
 }
 
 .box {
@@ -47,4 +73,19 @@ p {
 
 .settings {
   margin: 0 0 1rem 2px;
+}
+
+.headerModal {
+  width: 100%;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: red;
+  color: white;
+  height: 20rem;
+}
+
+.modal-lg {
+  max-width: 60%;
 }
