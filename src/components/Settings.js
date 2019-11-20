@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Button from "react-bootstrap/Button";
 
 class Settings extends Component{
     red;
@@ -76,6 +77,9 @@ class Settings extends Component{
                     <h1>Palohälytys</h1>
                     <textarea id="palo">Palohälytys harjoitus tai kaikki ulos</textarea>
                     <button>Modal!</button>
+                    <Button variant="primary" onClick={this.handleShow}>
+                        Launch demo modal
+                    </Button>
                 </div>
                 <div className="settings">
                     <h1>Lisää tiedote?</h1>
