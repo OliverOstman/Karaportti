@@ -28,7 +28,7 @@ class App extends Component{
     changeBackground = (selected) => this.setState({background: selected});
 
     componentDidMount() {
-        this.body = document.getElementById("root");
+        this.body = document.getElementById("keho");
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -100,7 +100,7 @@ class App extends Component{
 
 
                 <Route path="/settings" render={(props) => (
-                    <Settings {...props} show={this.open} changeBody={this.changeBody} changeBackground={this.changeBackground}/>
+                    <Settings {...props} show={this.open} changeBody={this.changeBody} changeBackground={this.changeBackground} background={this.state.background}/>
                 )}/>
                 <Route path="/home" component={Front}/>
                 <Redirect to="/home"/>

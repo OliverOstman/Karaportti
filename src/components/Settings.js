@@ -15,6 +15,9 @@ class Settings extends Component{
         this.remove = document.getElementById("remove");
         this.text2 = document.getElementById("palo");
         this.backremove = document.getElementById("removeBack");
+        if (this.props.background !== 0) {
+            this.backremove.style.display = "initial";
+        }
     }
 
     getText = (e) => {
