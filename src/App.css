@@ -89,3 +89,23 @@ p {
 .modal-lg {
   max-width: 60%;
 }
+
+.kortti {
+  margin-top: 8rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.card-header {
+  background-color: initial;
+  border-bottom: none;
+  padding-bottom: .25rem;
+}
+
+.card-body {
+  padding-top: .25rem;
+}
+
+.card {
+  border-radius: 3rem;
+}

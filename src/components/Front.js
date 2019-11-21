@@ -1,10 +1,57 @@
 import React, {Component} from 'react';
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
 
 class Front extends Component{
     render() {
         return (
             <div className="content">
-                <div className="box">
+                <Col xs={6} className="kortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>4 Kerros</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <Button variant="info">4 Kerros</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col xs={6} className="kortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Aula</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <Button variant="info">Aula</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col xs={6} className="kortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Bussit</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <Button variant="info"
+                                    href="https://hsl.trapeze.fi/traveller/web?command=fullscreen&id=MetAKK&title=Karaportti&cols=2&offset=180">
+                                HSL</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col xs={6} className="kortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Ruokalista</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <Button variant="info" href="http://users.metropolia.fi/~villeope/ruokalista/">Ruokalista</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </div>
+            /*
+            <div className="box">
                     <h1>4 Kerros</h1>
                     <a href="/">4 kerros</a>
                 </div>
@@ -20,7 +67,7 @@ class Front extends Component{
                     <h1>Ruokalista</h1>
                     <a href="http://users.metropolia.fi/~villeope/ruokalista/">Ruokalista</a>
                 </div>
-            </div>
+             */
         )
     }
 }
