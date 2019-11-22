@@ -7,6 +7,7 @@ class Settings extends Component{
     remove;
     text2;
     backremove;
+    scroll;
 
     componentDidMount() {
         this.red = document.getElementById("red");
@@ -15,6 +16,7 @@ class Settings extends Component{
         this.remove = document.getElementById("remove");
         this.text2 = document.getElementById("palo");
         this.backremove = document.getElementById("removeBack");
+        this.scroll = document.getElementById("NavImp");
         if (this.props.background !== 0) {
             this.backremove.style.display = "initial";
         }
@@ -52,6 +54,16 @@ class Settings extends Component{
         this.backremove.style.display = "initial";
     };
 
+    startScroll = (e) => {
+        e.preventDefault();
+        this.scroll.classList.add("scroll")
+    };
+
+    removeScroll = (e) => {
+        e.preventDefault();
+        this.scroll.classList.remove("scroll")
+    };
+
     render() {
         return(
             <div>
@@ -71,21 +83,21 @@ class Settings extends Component{
                 </div>
                 <div className="settings">
                     <h1>Tärkeä tiedote</h1>
-                    <textarea id="red">
-                        Tähä laittaa jtn joka näkyy sitte sillain ylälaidassa punaisella taustalla
-                    </textarea>
+                    <textarea id="red" defaultValue="Tähä laittaa jtn joka näkyy sitte sillain ylälaidassa punaisella taustalla" />
                     <button onClick={this.getText}>Send</button>
+                    <button onClick={this.startScroll}>Scroll</button>
+                    <button id="scroll" onClick={this.removeScroll}>Remove scroll</button>
                     <button id="remove" onClick={this.removeText}>Remove</button>
                 </div>
                 <div className="settings">
                     <h1>Palohälytys</h1>
-                    <textarea id="palo">Palohälytys harjoitus tai kaikki ulos</textarea>
+                    <textarea id="palo" defaultValue="Palohälytys harjoitus tai kaikki ulos" />
                     <button onClick={this.setText}>Send</button>
                 </div>
                 <div className="settings">
                     <h1>Lisää tiedote?</h1>
-                    <textarea>Otsikko</textarea>
-                    <textarea>Ite tiedote</textarea>
+                    <textarea defaultValue="Otsikko" />
+                    <textarea defaultValue="Ite tiedote" />
                     <p>(Tapa jolla poistaa vanhoja tiedotteita ja/tai automaattinen poisto x päivien päästä)</p>
                 </div>
             </div>

@@ -38,9 +38,15 @@ p {
 
 #important {
   width: 100%;
+  max-height: 38px;
   text-align: center;
-  background-color: red;
   display: none;
+  overflow: hidden;
+  margin: 0;
+}
+
+#NavImp {
+  background-color: red;
 }
 
 #modalH1 {
@@ -108,4 +114,20 @@ p {
 
 .card {
   border-radius: 3rem;
+}
+
+.scroll {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.scroll h2 {
+  display: inline-block;
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  0%   { transform: translate(80%, 0); }
+  100% { transform: translate(-80%, 0); }
 }

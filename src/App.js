@@ -77,7 +77,7 @@ class App extends Component{
             <Router>
                 <div>
                     <Navbar bg="dark" expand="lg" variant="dark">
-                        <Navbar.Brand href="/">
+                        <Navbar.Brand>
                             <img
                                 alt=""
                                 src={logo}
@@ -104,8 +104,10 @@ class App extends Component{
                         </Navbar.Collapse>
                     </Navbar>
 
-                    <Nav>
-                        <h1 id="important">Palohälytys</h1>
+                    <Nav id="NavImp" >
+                        <h2 id="important">
+                            Tärkeä tiedote
+                        </h2>
                     </Nav>
 
                     <this.myModal/>
