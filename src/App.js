@@ -13,7 +13,10 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "./logo.svg";
 import Nav from "react-bootstrap/Nav";
 import {IoIosSettings} from "react-icons/io";
+import {IoIosHome} from "react-icons/io"
 import { IconContext } from "react-icons";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 class App extends Component{
     state = {
@@ -72,6 +75,14 @@ class App extends Component{
       )
     };
 
+    renderHomeTooltip = (props) => {
+        return <Tooltip {...props}>Home</Tooltip>;
+    };
+
+    renderSettingsTooltip = (props) => {
+        return <Tooltip {...props}>Settings</Tooltip>;
+    };
+
     render() {
         return (
             <Router>
@@ -91,15 +102,28 @@ class App extends Component{
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
                                 <Navbar.Text>
-                                    <NavLink to="/home">Home</NavLink>
+                                    <OverlayTrigger placement="right"
+                                                    delay={{ show: 350, hide: 100 }}
+                                                    overlay={this.renderHomeTooltip}>
+                                    <NavLink to="/home">
+
+                                        <IconContext.Provider value={{size: "1.5rem" }}>
+                                            <IoIosHome />
+                                        </IconContext.Provider>
+                                    </NavLink>
+                                    </OverlayTrigger>
                                 </Navbar.Text>
                             </Nav>
                             <Navbar.Text>
+                                <OverlayTrigger placement="left"
+                                                delay={{ show: 350, hide: 100 }}
+                                                overlay={this.renderSettingsTooltip}>
                                 <NavLink to="/settings">
                                     <IconContext.Provider value={{size: "1.5rem" }}>
                                     <IoIosSettings />
                                     </IconContext.Provider>
                                 </NavLink>
+                                </OverlayTrigger>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Navbar>

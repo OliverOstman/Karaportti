@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
 
 class Settings extends Component{
     red;
@@ -66,40 +68,64 @@ class Settings extends Component{
 
     render() {
         return(
-            <div>
-                <div className="settings">
-                    <h1>Taustakuva</h1>
-                    <select id="select">
-                        <option value="1">Talvi</option>
-                        <option value="2">Kevät/Kesä</option>
-                        <option value="3">Syksy</option>
-                    </select>
-                    <button onClick={this.getValue}>Select</button>
-                    <button id="removeBack" onClick={this.removeBack}>Remove</button>
-                    <br/>
-                    <a href="https://webdev-public.metropolia.fi/taustakuvat/">Lista jtn oma.metropolian käyttämiä taustakuvia</a>
-                    <p>(Lisänä pyhät/lomat joulu, pääsiäinen, halloween?)</p>
-                    <p>(lisänä tapa ladata oma kuva?)</p>
-                </div>
-                <div className="settings">
-                    <h1>Tärkeä tiedote</h1>
-                    <textarea id="red" defaultValue="Tähä laittaa jtn joka näkyy sitte sillain ylälaidassa punaisella taustalla" />
-                    <button onClick={this.getText}>Send</button>
-                    <button onClick={this.startScroll}>Scroll</button>
-                    <button id="scroll" onClick={this.removeScroll}>Remove scroll</button>
-                    <button id="remove" onClick={this.removeText}>Remove</button>
-                </div>
-                <div className="settings">
-                    <h1>Palohälytys</h1>
-                    <textarea id="palo" defaultValue="Palohälytys harjoitus tai kaikki ulos" />
-                    <button onClick={this.setText}>Send</button>
-                </div>
-                <div className="settings">
-                    <h1>Lisää tiedote?</h1>
-                    <textarea defaultValue="Otsikko" />
-                    <textarea defaultValue="Ite tiedote" />
-                    <p>(Tapa jolla poistaa vanhoja tiedotteita ja/tai automaattinen poisto x päivien päästä)</p>
-                </div>
+            <div className="content">
+                <Col xs={6} className="settingsKortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Taustakuva</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <select id="select">
+                                <option value="1">Talvi</option>
+                                <option value="2">Kevät/Kesä</option>
+                                <option value="3">Syksy</option>
+                            </select>
+                            <button onClick={this.getValue}>Select</button>
+                            <button id="removeBack" onClick={this.removeBack}>Remove</button>
+                            <br/>
+                            <a href="https://webdev-public.metropolia.fi/taustakuvat/">Lista jtn oma.metropolian käyttämiä taustakuvia</a>
+                            <p>(Lisänä pyhät/lomat joulu, pääsiäinen, halloween?)</p>
+                            <p>(lisänä tapa ladata oma kuva?)</p>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col xs={6} className="settingsKortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Tärkeä tiedote</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <textarea id="red" defaultValue="Tähä laittaa jtn joka näkyy sitte sillain ylälaidassa punaisella taustalla" maxLength="115"/>
+                            <button onClick={this.getText}>Send</button>
+                            <button onClick={this.startScroll}>Scroll</button>
+                            <button id="scroll" onClick={this.removeScroll}>Remove scroll</button>
+                            <button id="remove" onClick={this.removeText}>Remove</button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col xs={6} className="settingsKortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Palohälytys</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <textarea id="palo" defaultValue="Palohälytys harjoitus tai kaikki ulos" maxLength="225"/>
+                            <button onClick={this.setText}>Send</button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col xs={6} className="settingsKortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Lisää tiedote?</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <textarea defaultValue="Otsikko" />
+                            <textarea defaultValue="Ite tiedote" />
+                            <p>(Tapa jolla poistaa vanhoja tiedotteita ja/tai automaattinen poisto x päivien päästä)</p>
+                        </Card.Body>
+                    </Card>
+                </Col>
             </div>
         )
     }
