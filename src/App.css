@@ -19,6 +19,10 @@ p {
   color: white;
 }
 
+#displayFlex {
+  display: flex;
+}
+
 #modalsHeader {
   border-bottom: none;
   margin-bottom: 3rem;
@@ -30,11 +34,6 @@ p {
 
 #removeBack {
   display: none;
-}
-
-#bus {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 #p1, #p2 {
@@ -84,6 +83,10 @@ p {
   height: 100%;
   text-align: center;
   margin-top: 10rem;
+}
+
+.half {
+  width: 50%;
 }
 
 .content {
@@ -142,6 +145,15 @@ p {
 
 .card {
   border-radius: 3rem;
+}
+
+.btn {
+  margin: 0 .5rem;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .scroll {

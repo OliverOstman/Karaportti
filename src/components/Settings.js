@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 class Settings extends Component{
     red;
@@ -80,8 +81,8 @@ class Settings extends Component{
                                 <option value="2">Kevät/Kesä</option>
                                 <option value="3">Syksy</option>
                             </select>
-                            <button onClick={this.getValue}>Select</button>
-                            <button id="removeBack" onClick={this.removeBack}>Remove</button>
+                            <Button onClick={this.getValue}>Select</Button>
+                            <Button id="removeBack" onClick={this.removeBack}>Remove</Button>
                             <br/>
                             <a href="https://webdev-public.metropolia.fi/taustakuvat/">Lista jtn oma.metropolian käyttämiä taustakuvia</a>
                             <p>(Lisänä pyhät/lomat joulu, pääsiäinen, halloween?)</p>
@@ -94,12 +95,22 @@ class Settings extends Component{
                         <Card.Header>
                             <h1>Tärkeä tiedote</h1>
                         </Card.Header>
-                        <Card.Body>
+                        <Card.Body id="displayFlex">
                             <textarea id="red" defaultValue="Tähä laittaa jtn joka näkyy sitte sillain ylälaidassa punaisella taustalla" maxLength="115"/>
-                            <button onClick={this.getText}>Send</button>
-                            <button onClick={this.startScroll}>Scroll</button>
-                            <button id="scroll" onClick={this.removeScroll}>Remove scroll</button>
-                            <button id="remove" onClick={this.removeText}>Remove</button>
+                            <div className="flex">
+                                <Col xs={4}>
+                                    <Button onClick={this.getText}>Send</Button>
+                                </Col>
+                                <Col xs={4}>
+                                    <Button onClick={this.startScroll}>Scroll</Button>
+                                </Col>
+                                <Col xs={4}>
+                                    <Button id="scroll" onClick={this.removeScroll}>Remove scroll</Button>
+                                </Col>
+                                <Col xs={4}>
+                                    <Button id="remove" onClick={this.removeText}>Remove</Button>
+                                </Col>
+                            </div>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -110,7 +121,7 @@ class Settings extends Component{
                         </Card.Header>
                         <Card.Body>
                             <textarea id="palo" defaultValue="Palohälytys harjoitus tai kaikki ulos" maxLength="225"/>
-                            <button onClick={this.setText}>Send</button>
+                            <Button onClick={this.setText}>Send</Button>
                         </Card.Body>
                     </Card>
                 </Col>

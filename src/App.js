@@ -17,6 +17,7 @@ import {IoIosHome} from "react-icons/io"
 import { IconContext } from "react-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import OnePage from "./components/OnePage";
 
 class App extends Component{
     state = {
@@ -54,6 +55,32 @@ class App extends Component{
             this.body.style.backgroundImage = "url('https://webdev-public.metropolia.fi/taustakuvat/tausta_idp.jpg')";
         }
     }
+
+    homeLink = () => {
+        if (this.props.route === this.props.to) {
+            return (
+                <OverlayTrigger placement="right"
+                                delay={{ show: 350, hide: 100 }}
+                                overlay={this.renderHomeTooltip}>
+                    <IconContext.Provider value={{size: "1.5rem" }}>
+                        <IoIosHome />
+                    </IconContext.Provider>
+                </OverlayTrigger>
+            );
+        } else {
+            return (
+                <OverlayTrigger placement="right"
+                                delay={{ show: 350, hide: 100 }}
+                                overlay={this.renderHomeTooltip}>
+                    <NavLink to="/home">
+                        <IconContext.Provider value={{size: "1.5rem" }}>
+                            <IoIosHome />
+                        </IconContext.Provider>
+                    </NavLink>
+                </OverlayTrigger>
+            );
+        }
+    };
 
     myModal = () => {
       return (
@@ -105,12 +132,11 @@ class App extends Component{
                                     <OverlayTrigger placement="right"
                                                     delay={{ show: 350, hide: 100 }}
                                                     overlay={this.renderHomeTooltip}>
-                                    <NavLink to="/home">
-
-                                        <IconContext.Provider value={{size: "1.5rem" }}>
-                                            <IoIosHome />
-                                        </IconContext.Provider>
-                                    </NavLink>
+                                        <NavLink to="/home">
+                                            <IconContext.Provider value={{size: "1.5rem" }}>
+                                                <IoIosHome />
+                                            </IconContext.Provider>
+                                        </NavLink>
                                     </OverlayTrigger>
                                 </Navbar.Text>
                             </Nav>
@@ -138,9 +164,11 @@ class App extends Component{
                 </div>
 
                 <Route path="/settings" render={(props) => (
-                    <Settings {...props} show={this.open} changeBody={this.changeBody} changeBackground={this.changeBackground} background={this.state.background}/>
+                    <Settings {...props} show={this.open} changeBody={this.changeBody} changeBackground={this.changeBackground}
+                              background={this.state.background}/>
                 )}/>
                 <Route path="/home" component={Front}/>
+                <Route path="/OnePage" component={OnePage}/>
                 <Redirect to="/home"/>
             </Router>
         );

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
+import {NavLink} from "react-router-dom";
 
 class Front extends Component{
     render() {
@@ -10,10 +11,12 @@ class Front extends Component{
                 <Col xs={6} className="kortti">
                     <Card bg="dark" text="white" border="dark">
                         <Card.Header>
-                            <h1>4 Kerros</h1>
+                            <h1>OnePage</h1>
                         </Card.Header>
                         <Card.Body>
-                            <Button variant="info">4 Kerros</Button>
+                            <NavLink to="/OnePage">
+                                <Button variant="info">OnePage</Button>
+                            </NavLink>
                         </Card.Body>
                     </Card>
                 </Col>
