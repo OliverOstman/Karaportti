@@ -86,7 +86,8 @@ p {
 }
 
 .half {
-  width: 50%;
+  width: 38%;
+  margin: 2rem 5rem 0 5rem;
 }
 
 .content {

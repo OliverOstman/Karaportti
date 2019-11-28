@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Card from "react-bootstrap/Card";
 
 class OnePage extends Component{
     bus;
@@ -97,14 +98,22 @@ class OnePage extends Component{
     render() {
         return (
             <div className="content">
-                <div className="half">
-                    <h1>bussit</h1>
-                    <p id="bussit"></p>
-                </div>
-                <div className="half">
-                    <h1>ruoka</h1>
-                    <p id="ruoka"></p>
-                </div>
+                <Card bg="dark" text="white" border="dark" className="half">
+                    <Card.Header>
+                        <h1>bussit</h1>
+                    </Card.Header>
+                    <Card.Body>
+                        <p id="bussit"></p>
+                    </Card.Body>
+                </Card>
+                <Card bg="dark" text="white" border="dark" className="half">
+                    <Card.Header>
+                        <h1>ruoka</h1>
+                    </Card.Header>
+                    <Card.Body>
+                        <p id="ruoka"></p>
+                    </Card.Body>
+                </Card>
             </div>
         )
     }
