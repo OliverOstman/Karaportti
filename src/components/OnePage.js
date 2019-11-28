@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 class OnePage extends Component{
     bus;
     food;
+    items;
 
     componentDidMount() {
         this.bus = document.getElementById("bussit");
@@ -67,7 +68,7 @@ class OnePage extends Component{
                 "}\n    }\n  }\n}"
         };
 
-        return fetch("https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql", settings).then(response => {
+        fetch("https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql", settings).then(response => {
             return response.json();
         }).then(json => {
             let objects = "";
@@ -88,35 +89,36 @@ class OnePage extends Component{
     };
 
     menu = () => {
-      return fetch("http://cors-anywhere.herokuapp.com/https://www.fazerfoodco.fi/modules/json/json/Index?costNumber=3208&language=fi").then(response => {
+      fetch("http://cors-anywhere.herokuapp.com/https://www.fazerfoodco.fi/modules/json/json/Index?costNumber=3208&language=fi").then(response => {
               return response.json();
           }).then(json => {
-              console.log(json);
+          console.log(json);
+          this.items = json;
           })
     };
 
     render() {
-        return (
-            <div className="content">
-                <Card bg="dark" text="white" border="dark" className="half">
-                    <Card.Header>
-                        <h1>bussit</h1>
-                    </Card.Header>
-                    <Card.Body>
-                        <p id="bussit"></p>
-                    </Card.Body>
-                </Card>
-                <Card bg="dark" text="white" border="dark" className="half">
-                    <Card.Header>
-                        <h1>ruoka</h1>
-                    </Card.Header>
-                    <Card.Body>
-                        <p id="ruoka"></p>
-                    </Card.Body>
-                </Card>
-            </div>
-        )
-    }
+            return (
+                <div className="content">
+                    <Card bg="dark" text="white" border="dark" className="half">
+                        <Card.Header>
+                            <h1>bussit</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <p id="bussit"></p>
+                        </Card.Body>
+                    </Card>
+                    <Card bg="dark" text="white" border="dark" className="half">
+                        <Card.Header>
+                            <h1>ruoka</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <p id="ruoka"></p>
+                        </Card.Body>
+                    </Card>
+                </div>
+            )
+        }
 }
 
 export default OnePage;
