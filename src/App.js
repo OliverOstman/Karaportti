@@ -18,6 +18,7 @@ import { IconContext } from "react-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import OnePage from "./components/OnePage";
+import Hsl from "./components/Hsl";
 
 class App extends Component{
     state = {
@@ -169,6 +170,7 @@ class App extends Component{
                 )}/>
                 <Route path="/home" component={Front}/>
                 <Route path="/OnePage" component={OnePage}/>
+                <Route path="/Hsl" component={Hsl}/>
                 <Redirect to="/home"/>
             </Router>
         );
