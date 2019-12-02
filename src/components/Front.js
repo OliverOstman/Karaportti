@@ -5,6 +5,13 @@ import Col from "react-bootstrap/Col";
 import {NavLink} from "react-router-dom";
 
 class Front extends Component{
+    nav;
+
+    componentDidMount() {
+        this.nav = document.getElementById("Navbar");
+        this.nav.style = "display: flex"
+    }
+
     render() {
         return (
             <div className="content">

@@ -115,7 +115,7 @@ class App extends Component{
         return (
             <Router>
                 <div>
-                    <Navbar bg="dark" expand="lg" variant="dark">
+                    <Navbar bg="dark" expand="lg" variant="dark" id="Navbar">
                         <Navbar.Brand>
                             <img
                                 alt=""
