@@ -81,7 +81,7 @@ class OnePage extends Component{
                         json.data.nearest.edges[i].node.distance + "m - " +
                         json.data.nearest.edges[i].node.place.stoptimes[0].trip.route.shortName + " - " +
                         json.data.nearest.edges[i].node.place.stoptimes[0].headsign + " - " +
-                        departure + "<br />" + "</p>";
+                        departure  + "</p>";
                 }
             }
             this.bus.innerHTML = this.bus.innerHTML + objects;
