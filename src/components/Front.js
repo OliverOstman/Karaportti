@@ -24,9 +24,6 @@ class Front extends Component{
                             <NavLink to="/OnePage">
                                 <Button variant="info">OnePage</Button>
                             </NavLink>
-                            <NavLink to="/Hsl">
-                                <Button variant="info">Hsl</Button>
-                            </NavLink>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -48,7 +45,10 @@ class Front extends Component{
                         <Card.Body>
                             <Button variant="info"
                                     href="https://hsl.trapeze.fi/traveller/web?command=fullscreen&id=MetAKK&title=Karaportti%202&cols=2&offset=180">
-                                HSL</Button>
+                                HSL sivu</Button>
+                            <NavLink to="/Hsl">
+                                <Button variant="info">Hsl</Button>
+                            </NavLink>
                         </Card.Body>
                     </Card>
                 </Col>

@@ -114,6 +114,7 @@ class OnePage extends Component{
                         </Card.Header>
                         <Card.Body>
                             <p id="ruoka"></p>
+                            <iframe id="iframe2" title="Food" src="http://users.metropolia.fi/~villeope/ruokalista/" />
                         </Card.Body>
                     </Card>
                 </div>
