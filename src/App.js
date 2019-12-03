@@ -113,7 +113,7 @@ class App extends Component{
 
     render() {
         return (
-            <Router>
+            <Router basename='/~olivero/karaportti/'>
                 <div>
                     <Navbar bg="dark" expand="lg" variant="dark" id="Navbar">
                         <Navbar.Brand>
