@@ -57,32 +57,6 @@ class App extends Component{
         }
     }
 
-    homeLink = () => {
-        if (this.props.route === this.props.to) {
-            return (
-                <OverlayTrigger placement="right"
-                                delay={{ show: 350, hide: 100 }}
-                                overlay={this.renderHomeTooltip}>
-                    <IconContext.Provider value={{size: "1.5rem" }}>
-                        <IoIosHome />
-                    </IconContext.Provider>
-                </OverlayTrigger>
-            );
-        } else {
-            return (
-                <OverlayTrigger placement="right"
-                                delay={{ show: 350, hide: 100 }}
-                                overlay={this.renderHomeTooltip}>
-                    <NavLink to="/home">
-                        <IconContext.Provider value={{size: "1.5rem" }}>
-                            <IoIosHome />
-                        </IconContext.Provider>
-                    </NavLink>
-                </OverlayTrigger>
-            );
-        }
-    };
-
     myModal = () => {
       return (
           <Modal show={this.state.modalShow} onHide={this.hide} animation={false}
@@ -168,9 +142,9 @@ class App extends Component{
                     <Settings {...props} show={this.open} changeBody={this.changeBody} changeBackground={this.changeBackground}
                               background={this.state.background}/>
                 )}/>
+                <Route path="/Info" component={Hsl}/>
                 <Route path="/home" component={Front}/>
                 <Route path="/OnePage" component={OnePage}/>
-                <Route path="/Hsl" component={Hsl}/>
                 <Redirect to="/home"/>
             </Router>
         );

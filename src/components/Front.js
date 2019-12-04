@@ -33,7 +33,9 @@ class Front extends Component{
                             <h1>Aula</h1>
                         </Card.Header>
                         <Card.Body>
-                            <Button variant="info">Aula</Button>
+                            <NavLink to="/Info">
+                                <Button variant="info">Aula</Button>
+                            </NavLink>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -46,9 +48,6 @@ class Front extends Component{
                             <Button variant="info"
                                     href="https://hsl.trapeze.fi/traveller/web?command=fullscreen&id=MetAKK&title=Karaportti%202&cols=2&offset=180">
                                 HSL sivu</Button>
-                            <NavLink to="/Hsl">
-                                <Button variant="info">Hsl</Button>
-                            </NavLink>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -63,24 +62,6 @@ class Front extends Component{
                     </Card>
                 </Col>
             </div>
-            /*
-            <div className="box">
-                    <h1>4 Kerros</h1>
-                    <a href="/">4 kerros</a>
-                </div>
-                <div className="box">
-                    <h1>Aula</h1>
-                    <a href="/">Aula</a>
-                </div>
-                <div className="box">
-                    <h1>Bussit</h1>
-                    <a href="https://hsl.trapeze.fi/traveller/web?command=fullscreen&id=MetAKK&title=Karaportti&cols=2&offset=180">HSL</a>
-                </div>
-                <div className="box">
-                    <h1>Ruokalista</h1>
-                    <a href="http://users.metropolia.fi/~villeope/ruokalista/">Ruokalista</a>
-                </div>
-             */
         )
     }
 }
