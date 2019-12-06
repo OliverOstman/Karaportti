@@ -18,18 +18,6 @@ class Front extends Component{
                 <Col xs={6} className="kortti">
                     <Card bg="dark" text="white" border="dark">
                         <Card.Header>
-                            <h1>OnePage</h1>
-                        </Card.Header>
-                        <Card.Body>
-                            <NavLink to="/OnePage">
-                                <Button variant="info">OnePage</Button>
-                            </NavLink>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xs={6} className="kortti">
-                    <Card bg="dark" text="white" border="dark">
-                        <Card.Header>
                             <h1>Aula</h1>
                         </Card.Header>
                         <Card.Body>

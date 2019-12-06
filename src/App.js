@@ -10,7 +10,7 @@ import Front from "./components/Front";
 import Settings from "./components/Settings";
 import Modal from "react-bootstrap/Modal";
 import Navbar from "react-bootstrap/Navbar";
-import logo from "./logo.svg";
+import logo from "./metro-logo.png";
 import Nav from "react-bootstrap/Nav";
 import {IoIosSettings} from "react-icons/io";
 import {IoIosHome} from "react-icons/io"

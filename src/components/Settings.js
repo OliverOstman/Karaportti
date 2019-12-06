@@ -84,9 +84,7 @@ class Settings extends Component{
                             <Button onClick={this.getValue}>Select</Button>
                             <Button id="removeBack" onClick={this.removeBack}>Remove</Button>
                             <br/>
-                            <a href="https://webdev-public.metropolia.fi/taustakuvat/">Lista jtn oma.metropolian käyttämiä taustakuvia</a>
-                            <p>(Lisänä pyhät/lomat joulu, pääsiäinen, halloween?)</p>
-                            <p>(lisänä tapa ladata oma kuva?)</p>
+                            <a href="https://webdev-public.metropolia.fi/taustakuvat/">Taustakuvat oma.metropolia:sta</a>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -125,18 +123,7 @@ class Settings extends Component{
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col xs={6} className="settingsKortti">
-                    <Card bg="dark" text="white" border="dark">
-                        <Card.Header>
-                            <h1>Lisää tiedote?</h1>
-                        </Card.Header>
-                        <Card.Body>
-                            <textarea defaultValue="Otsikko" />
-                            <textarea defaultValue="Ite tiedote" />
-                            <p>(Tapa jolla poistaa vanhoja tiedotteita ja/tai automaattinen poisto x päivien päästä)</p>
-                        </Card.Body>
-                    </Card>
-                </Col>
+
             </div>
         )
     }
