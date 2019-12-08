@@ -3,31 +3,52 @@ import React, {Component} from "react";
 class Hsl extends Component{
     state = {
         iframeSrc: 1,
+        time: 30000,
     };
     nav;
     iframe;
     interval;
+    timeout;
 
-    // If need/want make so that you can change the intervals time on settings
     componentDidMount() {
+        this.timeChange();
         this.nav = document.getElementById("Navbar");
         this.iframe = document.getElementById("iframe");
         this.nav.style = "display: none";
-        this.interval = setInterval(
-            function() {
-                console.log("vaihto");
-                if (this.state.iframeSrc === 1) {
-                    this.setState({iframeSrc: 2});
-                } else if (this.state.iframeSrc === 2) {
-                    this.setState({iframeSrc: 3});
-                } else {
-                    this.setState({iframeSrc: 1});
-                }
-            }
-                .bind(this),
-            15000
-        );
     }
+
+    timeChange = () => {
+      if (this.props.time === "1") {
+          this.setState({time: 10000});
+      } else if (this.props.time === "2") {
+          this.setState({time: 15000});
+      } else if (this.props.time === "3") {
+          this.setState({time: 20000});
+      } else if (this.props.time === "4") {
+          this.setState({time: 25000});
+      } else if (this.props.time === "5") {
+          this.setState({time: 30000});
+      }
+      setTimeout(
+        function () {
+            this.interval = setInterval(
+                function() {
+                    console.log("vaihto");
+                    if (this.state.iframeSrc === 1) {
+                        this.setState({iframeSrc: 2});
+                    } else if (this.state.iframeSrc === 2) {
+                        this.setState({iframeSrc: 3});
+                    } else {
+                        this.setState({iframeSrc: 1});
+                    }
+                }
+                    .bind(this),
+                this.state.time
+            );
+        }
+            .bind(this),1
+      );
+    };
 
     iframeChange = () => {
         if (this.state.iframeSrc === 1) {

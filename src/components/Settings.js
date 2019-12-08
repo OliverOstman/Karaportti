@@ -9,21 +9,28 @@ class Settings extends Component{
     select;
     remove;
     text2;
-    backremove;
+    backRemove;
     scroll;
+    timeSelect;
 
     componentDidMount() {
         this.red = document.getElementById("red");
         this.Text = document.getElementById("important");
         this.select = document.getElementById("select");
+        this.timeSelect = document.getElementById("timeSelect");
         this.remove = document.getElementById("remove");
         this.text2 = document.getElementById("palo");
-        this.backremove = document.getElementById("removeBack");
+        this.backRemove = document.getElementById("removeBack");
         this.scroll = document.getElementById("NavImp");
         if (this.props.background !== 0) {
-            this.backremove.style.display = "initial";
+            this.backRemove.style.display = "initial";
         }
     }
+
+    changeTime = (e) => {
+        e.preventDefault();
+        this.props.time(this.timeSelect.options[this.timeSelect.selectedIndex].value);
+    };
 
     getText = (e) => {
         e.preventDefault();
@@ -48,13 +55,13 @@ class Settings extends Component{
     removeBack = (e) => {
         e.preventDefault();
         this.props.changeBackground("0");
-        this.backremove.style.display = "none";
+        this.backRemove.style.display = "none";
     };
 
     getValue = (e) => {
         e.preventDefault();
         this.props.changeBackground(this.select.options[this.select.selectedIndex].value);
-        this.backremove.style.display = "initial";
+        this.backRemove.style.display = "initial";
     };
 
     startScroll = (e) => {
@@ -123,7 +130,23 @@ class Settings extends Component{
                         </Card.Body>
                     </Card>
                 </Col>
-
+                <Col xs={6} className="settingsKortti">
+                    <Card bg="dark" text="white" border="dark">
+                        <Card.Header>
+                            <h1>Ajastus</h1>
+                        </Card.Header>
+                        <Card.Body>
+                            <select id="timeSelect">
+                                <option value="1">10s</option>
+                                <option value="2">15s</option>
+                                <option value="3">20s</option>
+                                <option value="4">25s</option>
+                                <option value="5">30s</option>
+                            </select>
+                            <Button onClick={this.changeTime}>Select</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
             </div>
         )
     }

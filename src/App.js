@@ -26,6 +26,7 @@ class App extends Component{
         modalBody: "",
         modalTitle: "Palohälytys",
         background: "1",
+        time: "2",
     };
     body;
 
@@ -33,6 +34,7 @@ class App extends Component{
     open = () => this.setState({modalShow: true});
     changeBody = (text) => this.setState({modalBody: text});
     changeBackground = (selected) => this.setState({background: selected});
+    changeTime = (selected) => this.setState({time: selected});
 
     componentDidMount() {
         this.body = document.getElementById("keho");
@@ -140,9 +142,11 @@ class App extends Component{
 
                 <Route path="/settings" render={(props) => (
                     <Settings {...props} show={this.open} changeBody={this.changeBody} changeBackground={this.changeBackground}
-                              background={this.state.background}/>
+                              background={this.state.background} time={this.changeTime}/>
                 )}/>
-                <Route path="/Info" component={Hsl}/>
+                <Route path="/Info" render={(props) => (
+                    <Hsl {...props} time={this.state.time}/>
+                )}/>
                 <Route path="/home" component={Front}/>
                 <Route path="/OnePage" component={OnePage}/>
                 <Redirect to="/home"/>
